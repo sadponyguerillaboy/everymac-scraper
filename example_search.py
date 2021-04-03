@@ -1,3 +1,5 @@
+# Example script on how to search the resulting database.json file created by scraper.py
+
 import json
 
 #search = 'MacBook'

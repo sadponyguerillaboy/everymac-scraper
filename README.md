@@ -1,6 +1,6 @@
 # everymac-scraper
 
-Python script that creates a comprehensive `json` database of all items listed on everymac. Please review everymac's [Terms of Use](https://everymac.com/articles/admin/termsofuse.html). It prohibits the scraping of content. By using this software, the user takes full responsibility for their actions. Please refer to the license. This software was developed purely as a proof of concept for educational purposes. Usage of this software should be conducted in an ethical, respectful, non-commecial and legal manner.
+Python script that creates a comprehensive `json` database of all items listed on everymac. Please review everymac's [Terms of Use](https://everymac.com/articles/admin/termsofuse.html). It prohibits the scraping of content. By using this software, the user takes full responsibility for their actions. Please refer to the license. This software was developed purely as a proof of concept for educational purposes regarding web security. Usage of this software should be conducted in an ethical, respectful, non-commecial and legal manner.
 
 __Requirements:__
 ```

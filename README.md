@@ -2,7 +2,7 @@
 
 Python script that creates a comprehensive `json` database of all items listed on everymac. Please review everymac's [Terms of Use](https://everymac.com/articles/admin/termsofuse.html). It prohibits the scraping of content. By using this software, the user takes full responsibility for their actions. Please refer to the license. This software was developed purely as a proof of concept for educational purposes regarding web security. Usage of this software should be conducted in an ethical, respectful, non-commecial and legal manner.
 
-With that said, the US Court of Appeals denied LinkedIn’s request to prevent HiQ, an analytics company, from scraping its data in late 2019, effectively legalizing the scraping of content. [Reference for Ruling](https://parsers.me/us-court-fully-legalized-website-scraping-and-technically-prohibited-it/)
+With that said, the US Court of Appeals denied LinkedIn’s request to prevent HiQ, an analytics company, from scraping its data in late 2019, effectively legalizing the scraping of uncopyrighted content. [Reference for Ruling](https://parsers.me/us-court-fully-legalized-website-scraping-and-technically-prohibited-it/). In order for a copyright to be valid, the individual(s) or corporation(s) claiming to possess the copyright must have been the first individuals to document the item of copyright in tangible form. As much of the information hosted on everymac was produced elsewhere in some tangible form, copyrights could be debateable. 
 
 Use your best judgement.
 

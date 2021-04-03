@@ -1,6 +1,6 @@
 # everymac-scraper
 
-Python script that creates a `json` database of all items listed on everymac. Only to be used for ethical, archival, educational and non-commercial projects. Any other usage is not condoned. Everymac is already a free to use repository for the community resulting from countless hours of hard work. Be respectful.
+Python script that creates a comprehensive `json` database of all items listed on everymac. Only to be used for ethical, archival, educational and non-commercial projects. Any other usage is not condoned. Everymac is already a free to use repository for the community resulting from countless hours of hard work. Be respectful.
 
 __Requirements:__
 ```

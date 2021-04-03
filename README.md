@@ -14,3 +14,7 @@ __Usage:__
 ```
 python scraper.py
 ```
+
+__Notes:__
+
+The only item that is not currently added to the database is the eMate 300. Its specs page is differently formated from everything else and incompatible with the scrapers algorithm.

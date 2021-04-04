@@ -9,6 +9,7 @@ Use your best judgement.
 __Requirements:__
 ```
 bs4
+fake-useragent
 pandas
 lxml
 requests

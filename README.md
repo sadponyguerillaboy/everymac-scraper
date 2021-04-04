@@ -10,6 +10,7 @@ __Requirements:__
 ```
 bs4
 pandas
+lxml
 requests
 urllib3
 ```

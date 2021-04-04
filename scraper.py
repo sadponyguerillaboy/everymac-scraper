@@ -1,14 +1,15 @@
 from bs4 import BeautifulSoup
+from fake_useragent import UserAgent
 import json
 import pandas as pd
 import re
 import requests
 import urllib3
 
-def getsystems(session):
+def getsystems(session, ua):
 	url = 'https://everymac.com/systems/apple/index-apple-specs-applespec.html'
 	headers = {
-		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:87.0) Gecko/20100101 Firefox/87.0'
+		'User-Agent': ua.random
 	}
 	try:
 		r = session.get(url, headers=headers, verify=False)
@@ -25,10 +26,10 @@ def getsystems(session):
 	except:
 		print('Error: Unable Acquire List')
 
-def getmodels(session, url_chunk):
+def getmodels(session, url_chunk, ua):
 	url = 'https://everymac.com' + url_chunk
 	headers = {
-		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:87.0) Gecko/20100101 Firefox/87.0'
+		'User-Agent': ua.random
 	}
 	try:
 		r = session.get(url, headers=headers, verify=False)
@@ -45,10 +46,10 @@ def getmodels(session, url_chunk):
 	except:
 		print('Error: Unable Acquire Models for:', url_chunk)
 
-def getspecs(session, model_url):
+def getspecs(session, model_url, ua):
 	url = 'https://everymac.com' + model_url
 	headers = {
-		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:87.0) Gecko/20100101 Firefox/87.0'
+		'User-Agent': ua.random
 	}
 	try:
 		# Initialize Variables
@@ -123,7 +124,7 @@ def getspecs(session, model_url):
 		print('Error: Unable Acquire Specs for:', model_url)
 
 # main program
-def main(session):
+def main(session, ua):
 	# 1. get base system types (i.e. macbooks, macbook pros)
 	# 2. then get all models for seach system type
 	# 3. then grab specs for each model type
@@ -139,13 +140,13 @@ def main(session):
 	skip_systems.append('/systems/apple/')
 	skip_models.extend(['/systems/apple/ipod/', '/systems/apple/iphone/', '/systems/apple/ipad/'])
 	
-	systems = getsystems(session)
+	systems = getsystems(session, ua)
 	for system in systems:
 		if system not in skip_systems:
 
 			# Special Case #1
 			if system == '/systems/apple/20th_mac/specs/20th-anniversary-mac.html':
-				specs = getspecs(session, system)
+				specs = getspecs(session, system, ua)
 				database['products'].append(specs)
 				skip_models.append(model)
 			# Special Case #2
@@ -154,10 +155,10 @@ def main(session):
 				#database['products'].append(specs)
 				skip_models.append(model)
 
-			models = getmodels(session, system)
+			models = getmodels(session, system, ua)
 			for model in models:
 				if model not in skip_models:
-					specs = getspecs(session, model)
+					specs = getspecs(session, model, ua)
 					database['products'].append(specs)
 					skip_models.append(model)
 
@@ -166,8 +167,11 @@ def main(session):
 	with open('database.json', 'w') as f:
   		json.dump(database, f, indent=4)
 
+# Initialize UserAgent
+ua = UserAgent()
+
 urllib3.disable_warnings()
 session = requests.Session()
 
-main(session)
+main(session, ua)
 print('Acquisistion Complete')

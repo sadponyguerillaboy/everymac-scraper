@@ -113,10 +113,11 @@ def getspecs(session, model_url, ua):
 			if count % 2 == 0:
 				# if cound divisible by 2, is even, which means details section for the previous iteration
 				# add combined specs & details to master then reset combined for next iteration
-				master['specs'].extend(combined)
-
+				master['specs'].append(combined)
+				
 				# Re-Initialize dictionary
 				combined = []
+				count = 1
 			
 		#print(master)
 		return master
